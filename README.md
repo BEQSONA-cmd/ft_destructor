@@ -7,21 +7,18 @@ In short it's simplifying memory management and minimizing memory leaks.
 
 ## Installation
 
-Clone repository
+Install library on machine
 ```bash
-git clone https://github.com/Emsa001/ft_destructor
+cd && git clone https://github.com/BEQSONA-cmd/ft_destructor.git && cd ft_destructor && sh install.sh
 ```
 
-Compile to ft_alloc.a
-```bash 
-cd ft_destructor
-make
+## Getting Started
+
+Run command in terminal and follow steps for implement library 
+```bash
+fix_leaks
 ```
 
-Add to your application
-```bash
-cc main.c ft_alloc.a -o my_program
-```
 ## Functions
 
 - Init / Get the list with all allocations
