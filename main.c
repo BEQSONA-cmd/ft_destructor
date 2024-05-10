@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:06:43 by escura            #+#    #+#             */
-/*   Updated: 2024/05/07 19:12:07 by escura           ###   ########.fr       */
+/*   Updated: 2024/05/10 14:15:21 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_alloc.h"
+#include "./ft_destructor/ft_alloc.h"
 
 int	main(void)
 {
