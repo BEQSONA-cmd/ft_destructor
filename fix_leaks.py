@@ -151,6 +151,32 @@ def add_ft_malloc_in_c_files(c_files):
     for file in c_files:
         add_ft_malloc_in_one_file(file)
 
+# function will look all free functions in the file
+# and will replace string free with ft_free
+# if there is ft_free it will skip and continue to the next free
+
+def add_ft_free_in_one_file(file_path):
+    free = "free"
+    ft_free = "ft_free"
+    for line in open(file_path):
+        if free in line and ft_free not in line:
+            with open(file_path, "r") as file:
+                lines = file.readlines()
+            with open(file_path, "w") as file:
+                for line in lines:
+                    file.write(line.replace(free, ft_free))
+            break
+
+# function will use add_ft_free_in_one_file(file) for all c files
+
+def add_ft_free_in_c_files(c_files):
+    # c_files may have only one string
+    if isinstance(c_files, str):
+        add_ft_free_in_one_file(c_files)
+        return
+    for file in c_files:
+        add_ft_free_in_one_file(file)
+
 # function will find main function in the project
 # and will return the path to the file
 
@@ -246,6 +272,8 @@ if __name__ == "__main__":
     press_eter_to_continue(f"{CYAN}ADDING HEADER IN {GREEN}(.h) {CYAN}FILES {RESET}")
     add_ft_malloc_in_c_files(c_files)
     press_eter_to_continue(f"{CYAN}REPLACING {LIGHT_YELLOW}malloc{YELLOW}() {CYAN}WITH {LIGHT_YELLOW}ft_malloc{YELLOW}() {RESET}")
+    add_ft_free_in_c_files(c_files)
+    press_eter_to_continue(f"{CYAN}REPLACING {LIGHT_YELLOW}free{YELLOW}() {CYAN}WITH {LIGHT_YELLOW}ft_free{YELLOW}() {RESET}")
     main_file = find_main_c_files(c_files)
     put_functions(main_file)
     press_eter_to_continue(f"{CYAN}ADDING {LIGHT_YELLOW}ft_alloc_init{YELLOW}() {CYAN}AND {LIGHT_YELLOW}ft_destructor{YELLOW}() {CYAN}IN {GREEN}(" + main_file +")")
