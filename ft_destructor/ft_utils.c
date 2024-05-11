@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:09:06 by escura            #+#    #+#             */
-/*   Updated: 2024/05/08 15:20:05 by escura           ###   ########.fr       */
+/*   Updated: 2024/05/11 16:50:15 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_allocsize(void)
 	return (size);
 }
 
-t_allocs	*ft_lstlast(t_allocs *lst)
+static t_allocs	*ft_lstlast(t_allocs *lst)
 {
 	if (!lst)
 		return (NULL);

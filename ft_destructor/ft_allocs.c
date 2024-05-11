@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   ft_allocs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:08:30 by escura            #+#    #+#             */
-/*   Updated: 2024/05/08 15:20:45 by escura           ###   ########.fr       */
+/*   Updated: 2024/05/11 16:45:50 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	ft_bzero(void *s, size_t n)
 		*ptr++ = 0;
 }
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_my_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
