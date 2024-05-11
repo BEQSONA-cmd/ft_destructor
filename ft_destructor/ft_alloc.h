@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:06:08 by escura            #+#    #+#             */
-/*   Updated: 2024/05/11 16:45:32 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:17:48 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct t_allocs
 bool				ft_alloc_init(void);
 
 /* allocations */
-void				*ft_my_calloc(size_t count, size_t size);
+void				*ft_calloc(size_t count, size_t size);
 void				*ft_malloc(size_t size);
 
 /* utils */

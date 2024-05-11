@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:06:43 by escura            #+#    #+#             */
-/*   Updated: 2024/05/11 16:46:04 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:19:41 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(void)
 	char *str5 = malloc(455 * sizeof(char)); 
 	(void)str5;
 
-	// will free everything that was allocated with ft_malloc or ft_my_calloc
+	// will free everything that was allocated with ft_malloc or ft_calloc
 	ft_destructor();
 	return (0);
 }

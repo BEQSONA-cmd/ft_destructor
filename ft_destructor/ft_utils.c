@@ -6,7 +6,7 @@
 /*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:09:06 by escura            #+#    #+#             */
-/*   Updated: 2024/05/11 16:50:15 by btvildia         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:18:05 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_allocsize(void)
 	return (size);
 }
 
-static t_allocs	*ft_lstlast(t_allocs *lst)
+t_allocs	*ft_lstlast(t_allocs *lst)
 {
 	if (!lst)
 		return (NULL);

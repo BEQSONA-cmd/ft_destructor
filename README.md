@@ -28,7 +28,7 @@ t_allocs *ft_allocs(t_allocs *lst);
 - Allocations
 ```c
 void *ft_malloc(size_t size);
-void *ft_my_calloc(size_t count, size_t size)
+void *ft_calloc(size_t count, size_t size)
 ```
 - Destructors
 ```c
@@ -68,7 +68,7 @@ int	main(void)
 	char *str5 = malloc(455 * sizeof(char)); 
 	(void)str5;
 
-	// will free everything that was allocated with ft_malloc or ft_my_calloc
+	// will free everything that was allocated with ft_malloc or ft_calloc
 	ft_destructor(); 
 	return (0);
 }
