@@ -130,8 +130,8 @@ def add_header_in_h_files(h_files):
 # if there is ft_malloc it will skip and continue to the next malloc
 
 def add_ft_malloc_in_one_file(file_path):
-    malloc = "malloc"
-    ft_malloc = "ft_malloc"
+    malloc = "= malloc("
+    ft_malloc = "= ft_malloc("
     for line in open(file_path):
         if malloc in line and ft_malloc not in line:
             with open(file_path, "r") as file:
@@ -156,8 +156,8 @@ def add_ft_malloc_in_c_files(c_files):
 # if there is ft_free it will skip and continue to the next free
 
 def add_ft_free_in_one_file(file_path):
-    free = "free"
-    ft_free = "ft_free"
+    free = "\tfree("
+    ft_free = "\tft_free("
     for line in open(file_path):
         if free in line and ft_free not in line:
             with open(file_path, "r") as file:
@@ -176,6 +176,32 @@ def add_ft_free_in_c_files(c_files):
         return
     for file in c_files:
         add_ft_free_in_one_file(file)
+
+# function will look all exit functions in the file
+# and will replace string exit with ft_exit
+
+def add_ft_exit_in_one_file(file_path):
+    exit = "\texit("
+    ft_exit = "\tft_exit("
+    for line in open(file_path):
+        if exit in line and ft_exit not in line:
+            with open(file_path, "r") as file:
+                lines = file.readlines()
+            with open(file_path, "w") as file:
+                for line in lines:
+                    file.write(line.replace(exit, ft_exit))
+            break
+
+
+# function will use add_ft_exit_in_one_file(file) for all c files
+
+def add_ft_exit_in_c_files(c_files):
+    # c_files may have only one string
+    if isinstance(c_files, str):
+        add_ft_exit_in_one_file(c_files)
+        return
+    for file in c_files:
+        add_ft_exit_in_one_file(file)
 
 # function will find main function in the project
 # and will return the path to the file
@@ -244,7 +270,7 @@ def put_functions(main_file):
                 file.write(line)
                 file.write(ft_alloc_init + "\n")
                 ft_alloc = 1
-            elif i > 0 and "return" in line:
+            elif i > 0 and "\treturn" in line:
                 file.write(ft_destructor + "\n")
                 file.write(line)
                 ft_destruct = 1
@@ -263,18 +289,26 @@ def press_eter_to_continue(message):
     print(message)
     input(f"\n{BLUE}Press {RED}[Enter]{BLUE} to continue...{RESET}\n")
 
+def try_catch_error_from_function(function):
+    try:
+        function()
+    except Exception as e:
+        print(f"{RED}{e}{RESET}")
+
 if __name__ == "__main__":
     h_files = all_h_files()
     c_files = all_c_files()
-    add_library_in_makefile()
+    try_catch_error_from_function(add_library_in_makefile)
     press_eter_to_continue(f"{CYAN}ADDING LIBRARY IN {GREEN}(Makefile) {RESET}")
-    add_header_in_h_files(h_files)
+    try_catch_error_from_function(lambda: add_header_in_h_files(h_files))
     press_eter_to_continue(f"{CYAN}ADDING HEADER IN {GREEN}(.h) {CYAN}FILES {RESET}")
     add_ft_malloc_in_c_files(c_files)
     press_eter_to_continue(f"{CYAN}REPLACING {LIGHT_YELLOW}malloc{YELLOW}() {CYAN}WITH {LIGHT_YELLOW}ft_malloc{YELLOW}() {RESET}")
     add_ft_free_in_c_files(c_files)
     press_eter_to_continue(f"{CYAN}REPLACING {LIGHT_YELLOW}free{YELLOW}() {CYAN}WITH {LIGHT_YELLOW}ft_free{YELLOW}() {RESET}")
+    # add_ft_exit_in_c_files(c_files) # use only if you dont check free before exit
+    # press_eter_to_continue(f"{CYAN}REPLACING {LIGHT_YELLOW}exit{YELLOW}() {CYAN}WITH {LIGHT_YELLOW}ft_exit{YELLOW}() {RESET}")
     main_file = find_main_c_files(c_files)
-    put_functions(main_file)
+    try_catch_error_from_function(lambda: put_functions(main_file))
     press_eter_to_continue(f"{CYAN}ADDING {LIGHT_YELLOW}ft_alloc_init{YELLOW}() {CYAN}AND {LIGHT_YELLOW}ft_destructor{YELLOW}() {CYAN}IN {GREEN}(" + main_file +")")
     print(f"{GREEN}[All leaks are fixed]{RESET}")

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_alloc.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: escura <escura@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: btvildia <btvildia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 14:06:08 by escura            #+#    #+#             */
-/*   Updated: 2024/05/08 15:20:22 by escura           ###   ########.fr       */
+/*   Updated: 2024/05/11 15:36:46 by btvildia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int					ft_allocsize(void);
 /* destructors */
 void				ft_free(void *ptr);
 void				ft_destructor(void);
+void				ft_exit(int status);
 
 #endif
